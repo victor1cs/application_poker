@@ -1,0 +1,67 @@
+<%= form_with(model: tournament) do |form| %>
+  <% if tournament.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
+
+      <ul>
+        <% tournament.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :buy_in, style: "display: block" %>
+    <%= form.text_field :buy_in %>
+  </div>
+
+  <div>
+    <%= form.label :award, style: "display: block" %>
+    <%= form.text_field :award %>
+  </div>
+
+  <div>
+    <%= form.label :position, style: "display: block" %>
+    <%= form.number_field :position %>
+  </div>
+
+  <div>
+    <%= form.label :quantity_players, style: "display: block" %>
+    <%= form.number_field :quantity_players %>
+  </div>
+
+  <div>
+    <%= form.label :start_date, style: "display: block" %>
+    <%= form.datetime_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date, style: "display: block" %>
+    <%= form.datetime_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.label :link, style: "display: block" %>
+    <%= form.text_field :link %>
+  </div>
+
+  <div>
+    <%= form.label :online, style: "display: block" %>
+    <%= form.check_box :online %>
+  </div>
+
+  <div>
+    <%= form.label :platform, style: "display: block" %>
+    <%= form.text_field :platform %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
