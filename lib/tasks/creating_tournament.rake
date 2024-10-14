@@ -6,7 +6,7 @@ namespace :creating_tournament do
     puts "Database cleaned successfully"
 
     puts "Creating the tournaments"
-    10.times do
+    50.times do
       Tournament.create(
         name: Faker::Name.name,
         buy_in: Faker::Number.decimal(l_digits: 2),

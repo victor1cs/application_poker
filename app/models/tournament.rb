@@ -8,4 +8,9 @@ class Tournament < ApplicationRecord
     return unless !award.blank?
     award - buy_in
   end
+
+  def roi
+    return 0 if buy_in.zero?
+    (((balance) / buy_in.to_f) * 100).round(2)
+  end
 end
