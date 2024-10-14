@@ -5,12 +5,24 @@
 <h1>Tournaments</h1>
 
 <div id="tournaments">
-  <% @tournaments.each do |tournament| %>
-    <%= render tournament %>
-    <p>
-      <%= link_to "Show this tournament", tournament %>
-    </p>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">BUY IN</th>
+        <th scope="col">AWARD</th>
+        <th scope="col">PLAYERS</th>
+        <th scope="col">POSITION</th>
+        <th scope="col">ONLINE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tournaments.each do |tournament| %>
+        <%= render tournament %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <%= link_to "New tournament", new_tournament_path %>
