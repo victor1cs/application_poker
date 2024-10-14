@@ -15,6 +15,7 @@
         <th scope="col">PLAYERS</th>
         <th scope="col">POSITION</th>
         <th scope="col">ONLINE</th>
+        <th scope="col">BALANCE</th>
       </tr>
     </thead>
     <tbody>
@@ -24,5 +25,20 @@
     </tbody>
   </table>
 </div>
+
+<h4>
+  <p>
+    You played the total number <strong><u><%= @tournaments.count %></u></strong> of tournaments, <%= @tournaments.where(online:true).count %> online and <%= @tournaments.where(online:false).count %> live
+  </p>
+</h4>
+
+<h3>
+  <p>
+    Currently your total balance is:
+    <span style="color: <%= @tournaments.sum(&:balance).positive? ? 'green' : 'red' %>;">
+      <%= @tournaments.sum(&:balance).to_f %>
+    </span>
+  </p>
+</h3>
 
 <%= link_to "New tournament", new_tournament_path %>
