@@ -1,12 +1,14 @@
 <tr>
-  <th scope="row"><%= tournament.id %></th>
   <td><%= tournament.name %></td>
   <td><%= tournament.buy_in %></td>
   <td><%= tournament.award %></td>
   <td><%= tournament.quantity_players %></td>
   <td><%= tournament.position %></td>
-  <td><%= tournament.online %></td>
+  <td><%= tournament.online ? 'Yes' : 'No' %></td>
   <td style="color: <%= tournament.balance.positive? ? 'green' : 'red' %>;">
     <%= tournament.balance %>
+  </td>
+  <td>
+    <%= link_to "Show more", tournament_path(tournament) %>
   </td>
 </tr>

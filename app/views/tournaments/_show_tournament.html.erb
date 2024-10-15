@@ -1,0 +1,58 @@
+<h1> All tournament details </h1>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <td><%= @tournament.name %></td>
+  </tr>
+  <tr>
+    <th>Buy In</th>
+    <td><%= @tournament.buy_in %></td>
+  </tr>
+  <tr>
+    <th>Award</th>
+    <td><%= @tournament.award %></td>
+  </tr>
+  <tr>
+    <th>Balance</th>
+    <td style="color: <%= @tournament.balance.positive? ? 'green' : 'red' %>;">
+      <%= @tournament.balance %>
+    </td>
+  </tr>
+  <tr>
+    <th>Position</th>
+    <td><%= @tournament.position %></td>
+  </tr>
+  <tr>
+    <th>Quantity of Players</th>
+    <td><%= @tournament.quantity_players %></td>
+  </tr>
+  <tr>
+    <th>Start Date</th>
+    <td><%= @tournament.start_date.strftime("%d/%m/%Y %H:%M") %></td>
+  </tr>
+  <tr>
+    <th>End Date</th>
+    <td><%= @tournament.end_date.strftime("%d/%m/%Y %H:%M") %></td>
+  </tr>
+  <tr>
+    <th>Link</th>
+    <td><%= link_to "View Tournament", @tournament.link, target: "_blank" %></td>
+  </tr>
+  <tr>
+    <th>Online</th>
+    <td><%= @tournament.online ? 'Yes' : 'No' %></td>
+  </tr>
+  <tr>
+    <th>Platform</th>
+    <td><%= @tournament.platform %></td>
+  </tr>
+</table>
+
+<div class="d-flex gap-2">
+  <%= link_to "Edit this tournament", edit_tournament_path(@tournament), class: "btn btn-outline-primary" %>
+
+  <%= link_to "Back to Tournaments", tournaments_path, class: "btn btn-outline-secondary" %>
+
+  <%= button_to "Delete this tournament", @tournament, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>
+

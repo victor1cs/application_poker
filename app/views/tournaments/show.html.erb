@@ -1,10 +1,3 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @tournament %>
-
-<div>
-  <%= link_to "Edit this tournament", edit_tournament_path(@tournament) %> |
-  <a href="<%= tournaments_path %>" class="btn btn-outline-secondary" role="button">Back to Tournaments</a>
-
-  <%= button_to "Destroy this tournament", @tournament, method: :delete %>
-</div>
+<%= render "show_tournament" %>

@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "home/index"
   devise_for :users
-  resources :tournaments, except: [:show]
+  resources :tournaments
+  get "news", to: "news#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
